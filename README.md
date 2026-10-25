@@ -90,8 +90,13 @@ src/main/resources/
 ```
 
 ## Screenshots
-
+Login Page:
 <img width="1362" height="605" alt="image" src="https://github.com/user-attachments/assets/d02f8c13-c4a6-4170-89c0-569bbf283b1e" />
+Admin Dashboard :
+<img width="1355" height="585" alt="image" src="https://github.com/user-attachments/assets/38f638e0-a0e8-4abf-8938-f09a831ec136" />
+Cashier Dashboard :
+<img width="1366" height="599" alt="image" src="https://github.com/user-attachments/assets/76df64e0-b845-4057-9b44-0d5882884bc8" />
+
 
 ## Future Enhancements
 
