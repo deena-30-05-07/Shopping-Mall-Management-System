@@ -1,5 +1,6 @@
 package com.mall.mallapp.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -22,13 +23,15 @@ public class SecurityConfig {
     }
 
     @Bean
-    public InMemoryUserDetailsManager users(PasswordEncoder encoder) {
+    public InMemoryUserDetailsManager users(PasswordEncoder encoder,
+                                            @Value("${ADMIN_PASSWORD}") String adminPassword,
+                                            @Value("${CASHIER_PASSWORD}") String cashierPassword) {
         UserDetails admin = User.withUsername("admin")
-                .password(encoder.encode("admin123"))
+                .password(encoder.encode(adminPassword))
                 .roles("ADMIN")
                 .build();
         UserDetails cashier = User.withUsername("cashier")
-                .password(encoder.encode("cashier123"))
+                .password(encoder.encode(cashierPassword))
                 .roles("CASHIER")
                 .build();
         return new InMemoryUserDetailsManager(admin, cashier);
