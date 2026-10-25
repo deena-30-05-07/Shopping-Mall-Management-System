@@ -21,14 +21,14 @@ A web application to manage the products, stock, billing and sales transactions 
 | Database | MySQL |
 | Build tool | Maven |
 
-## Roles and Demo Logins
+## Roles and Logins
 
-| Role | Username | Password | Access |
-|---|---|---|---|
-| Admin | `admin` | `admin123` | Everything: products, stock, billing, sales, dashboard |
-| Cashier | `cashier` | `cashier123` | Billing, bills, sales history, and viewing products |
+| Role | Username | Access |
+|---|---|---|
+| Admin | `admin` | Everything: products, stock, billing, sales, dashboard |
+| Cashier | `cashier` | Billing, bills, sales history, and viewing products |
 
-These are demo accounts for a mini project. Change them in `SecurityConfig.java` before any real use.
+The login passwords are not stored in the code. Set them as the environment variables `ADMIN_PASSWORD` and `CASHIER_PASSWORD` before starting the app.
 
 ## How to Run
 
@@ -43,10 +43,18 @@ These are demo accounts for a mini project. Change them in `SecurityConfig.java`
    ```sql
    CREATE DATABASE mallapp_db;
    ```
-3. Open `src/main/resources/application.properties` and put your own MySQL password:
+3. Set these environment variables with your own values:
+   - `DB_PASSWORD`: your MySQL password
+   - `ADMIN_PASSWORD`: the password for the admin login
+   - `CASHIER_PASSWORD`: the password for the cashier login
+
+   In PowerShell:
    ```
-   spring.datasource.password=YOUR_PASSWORD_HERE
+   $env:DB_PASSWORD="your_mysql_password"
+   $env:ADMIN_PASSWORD="choose_an_admin_password"
+   $env:CASHIER_PASSWORD="choose_a_cashier_password"
    ```
+   In IntelliJ: Run, then Edit Configurations, then Environment variables.
 4. Start the application, either by running `MallappApplication` in your IDE or from the terminal:
    ```
    ./mvnw spring-boot:run
